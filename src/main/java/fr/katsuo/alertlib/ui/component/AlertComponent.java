@@ -1,5 +1,6 @@
 package fr.katsuo.alertlib.ui.component;
 
+import fr.katsuo.alertlib.ui.Frame;
 import fr.katsuo.alertlib.utils.AlertType;
 import fr.katsuo.alertlib.utils.multiline.MultiLineLabelUI;
 
@@ -64,7 +65,7 @@ public class AlertComponent extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(valid.equals(e.getSource())){
-            System.exit(0);
+            Frame.getInstance().setVisible(false);
         }
     }
 

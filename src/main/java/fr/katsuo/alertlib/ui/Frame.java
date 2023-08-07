@@ -10,8 +10,11 @@ import java.awt.*;
 public class Frame extends JFrame {
 
     private final AlertComponent panel;
+    private static Frame instance;
 
     public Frame(String name, AlertType alert, String message){
+        instance = this;
+
         this.setTitle(name);
 
         this.setUndecorated(true);
@@ -26,5 +29,9 @@ public class Frame extends JFrame {
         this.addMouseMotionListener(mouse);
 
         this.setVisible(true);
+    }
+
+    public static Frame getInstance() {
+        return instance;
     }
 }
