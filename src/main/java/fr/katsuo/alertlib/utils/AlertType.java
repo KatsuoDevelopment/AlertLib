@@ -1,0 +1,14 @@
+package fr.katsuo.alertlib.utils;
+
+public enum AlertType {
+    SUCCESS("/circleCheck.png"),
+    INFO("/circleInfo.png"),
+    WARNING("/circleCheck.png"),
+    ERROR("/circleError.png");
+
+    public final String resourceLink;
+
+    AlertType(String resourceLink) {
+        this.resourceLink = resourceLink;
+    }
+}

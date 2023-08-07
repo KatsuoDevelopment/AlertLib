@@ -1,7 +1,7 @@
 package fr.katsuo.alertlib;
 
-import fr.katsuo.alertlib.ui.AlertFrame;
-import fr.katsuo.alertlib.utils.AlertEnum;
+import fr.katsuo.alertlib.ui.Frame;
+import fr.katsuo.alertlib.utils.AlertType;
 
 public class AlertLib {
 
@@ -15,7 +15,7 @@ public class AlertLib {
         return name;
     }
 
-    public void sendAlert(AlertEnum alert, String message) {
-        AlertFrame alertFrame = new AlertFrame(name, alert, "");
+    public void sendAlert(AlertType alert, String message) {
+        Frame frame = new Frame(name, alert, message);
     }
 }
