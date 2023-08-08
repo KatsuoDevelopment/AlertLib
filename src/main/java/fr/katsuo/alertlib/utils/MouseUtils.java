@@ -18,9 +18,7 @@ public class MouseUtils extends MouseAdapter {
     public void mouseDragged(MouseEvent e) {
         if (click != null) {
             Point draggedPoint = MouseInfo.getPointerInfo().getLocation();
-            frame.setLocation(new Point((int) draggedPoint.getX()
-                    - (int) click.getX(), (int) draggedPoint
-                    .getY() - (int) click.getY()));
+            frame.setLocation(new Point((int) draggedPoint.getX() - (int) click.getX(), (int) draggedPoint.getY() - (int) click.getY()));
         }
     }
 

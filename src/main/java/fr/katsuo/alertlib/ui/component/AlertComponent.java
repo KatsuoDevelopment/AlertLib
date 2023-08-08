@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 public class AlertComponent extends JPanel implements ActionListener {
 
@@ -41,7 +40,7 @@ public class AlertComponent extends JPanel implements ActionListener {
         text = interMediumFont.deriveFont(Font.PLAIN, 18f);
 
         titleLabel = new JLabel(title + " | " + upperCaseFirstChar(alertType.toString()));
-        titleLabel.setBounds(50, 18, 300, 14);
+        titleLabel.setBounds(50, 10, 300, 30);
         titleLabel.setForeground(Color.white);
         titleLabel.setBackground(new Color(1, 34, 12));
         titleLabel.setFont(text);
@@ -64,22 +63,30 @@ public class AlertComponent extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(valid.equals(e.getSource())){
+        if (valid.equals(e.getSource())) {
             Frame.getInstance().setVisible(false);
         }
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    protected void paintComponent(Graphics g2) {
+        Graphics2D g = (Graphics2D)g2;
+        RenderingHints rh = new RenderingHints(
+                RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHints(rh);
+        //Background Color
         g.setColor(new Color(41, 41, 41));
         g.fillRect(0, 0, 400, 200);
+
+        //TopBar Background Color
         g.setColor(new Color(31, 31, 31));
         g.fillRect(0, 0, 400, 50);
-        g.drawImage(img, 10, 10, 30, 30,this);
+
+        g.drawImage(img, 10, 10, 30, 30, this);
     }
 
-    private String upperCaseFirstChar(String message){
+    private String upperCaseFirstChar(String message) {
         String altnc = alertType.toString().toLowerCase();
         String output = altnc.substring(0, 1).toUpperCase() + altnc.substring(1);
         return output;

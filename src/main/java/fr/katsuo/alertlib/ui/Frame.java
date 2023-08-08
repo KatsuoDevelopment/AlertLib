@@ -5,14 +5,13 @@ import fr.katsuo.alertlib.utils.AlertType;
 import fr.katsuo.alertlib.utils.MouseUtils;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Frame extends JFrame {
 
-    private final AlertComponent panel;
     private static Frame instance;
+    private final AlertComponent panel;
 
-    public Frame(String name, AlertType alert, String message){
+    public Frame(String name, AlertType alert, String message) {
         instance = this;
 
         this.setTitle(name);

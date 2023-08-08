@@ -7,7 +7,7 @@ public class AlertLib {
 
     private String name;
 
-    public AlertLib(String name){
+    public AlertLib(String name) {
         this.name = name;
     }
 

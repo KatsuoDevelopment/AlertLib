@@ -12,7 +12,7 @@
  *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,9 +23,8 @@
  */
 package fr.katsuo.alertlib.utils.multiline;
 
-import java.awt.Rectangle;
-
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * A {@link JLabel} with support for multi-line text that wraps when the line
@@ -33,22 +32,30 @@ import javax.swing.JLabel;
  * {@link MultiLineLabelUI}, the default UI delegate of this component. The text
  * in the label can be horizontally and vertically aligned, relative to the
  * bounds of the component.
- * 
+ *
  * @author Samuel Sjoberg, http://samuelsjoberg.com
  * @version 1.0.0
  */
 public class MultiLineLabel extends JLabel {
 
-    /** Default serial version UID. */
+    /**
+     * Default serial version UID.
+     */
     private static final long serialVersionUID = 1L;
 
-    /** Horizontal text alignment. */
+    /**
+     * Horizontal text alignment.
+     */
     private int halign = LEFT;
 
-    /** Vertical text alignment. */
+    /**
+     * Vertical text alignment.
+     */
     private int valign = CENTER;
 
-    /** Cache to save heap allocations. */
+    /**
+     * Cache to save heap allocations.
+     */
     private Rectangle bounds;
 
     /**
@@ -61,16 +68,17 @@ public class MultiLineLabel extends JLabel {
 
     /**
      * Creates a new label with <code>text</code> value.
-     * 
-     * @param text
-     *            the value of the label
+     *
+     * @param text the value of the label
      */
     public MultiLineLabel(String text) {
         this();
         setText(text);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     public Rectangle getBounds() {
         if (bounds == null) {
             bounds = new Rectangle();
@@ -79,30 +87,8 @@ public class MultiLineLabel extends JLabel {
     }
 
     /**
-     * Set the vertical text alignment.
-     * 
-     * @param alignment
-     *            vertical alignment
-     */
-    public void setVerticalTextAlignment(int alignment) {
-        firePropertyChange("verticalTextAlignment", valign, alignment);
-        valign = alignment;
-    }
-
-    /**
-     * Set the horizontal text alignment.
-     * 
-     * @param alignment
-     *            horizontal alignment
-     */
-    public void setHorizontalTextAlignment(int alignment) {
-        firePropertyChange("horizontalTextAlignment", halign, alignment);
-        halign = alignment;
-    }
-
-    /**
      * Get the vertical text alignment.
-     * 
+     *
      * @return vertical text alignment
      */
     public int getVerticalTextAlignment() {
@@ -110,11 +96,31 @@ public class MultiLineLabel extends JLabel {
     }
 
     /**
+     * Set the vertical text alignment.
+     *
+     * @param alignment vertical alignment
+     */
+    public void setVerticalTextAlignment(int alignment) {
+        firePropertyChange("verticalTextAlignment", valign, alignment);
+        valign = alignment;
+    }
+
+    /**
      * Get the horizontal text alignment.
-     * 
+     *
      * @return horizontal text alignment
      */
     public int getHorizontalTextAlignment() {
         return halign;
+    }
+
+    /**
+     * Set the horizontal text alignment.
+     *
+     * @param alignment horizontal alignment
+     */
+    public void setHorizontalTextAlignment(int alignment) {
+        firePropertyChange("horizontalTextAlignment", halign, alignment);
+        halign = alignment;
     }
 }

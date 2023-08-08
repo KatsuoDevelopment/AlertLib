@@ -2,7 +2,6 @@ package fr.katsuo.alertlib.ui.component;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -39,7 +38,7 @@ public class ValidateButton extends JButton implements MouseListener {
         Font fontText = font.deriveFont(Font.BOLD, 11);
 
         JLabel label = new JLabel(text);
-        label.setBounds(150,0,100,30);
+        label.setBounds(150, 0, 100, 30);
         label.setFont(fontText);
         label.setForeground(Color.WHITE);
         this.add(label);
@@ -58,36 +57,44 @@ public class ValidateButton extends JButton implements MouseListener {
     public void mouseClicked(MouseEvent e) {
 
     }
+
     @Override
     public void mousePressed(MouseEvent e) {
 
     }
+
     @Override
     public void mouseReleased(MouseEvent e) {
 
     }
+
     @Override
     public void mouseEntered(MouseEvent e) {
         this.hovered = true;
     }
+
     @Override
     public void mouseExited(MouseEvent e) {
         this.hovered = false;
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if(this.hovered){
+    protected void paintComponent(Graphics g2) {
+        Graphics2D g = (Graphics2D)g2;
+        RenderingHints rh = new RenderingHints(
+                RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHints(rh);
+        if (this.hovered) {
             g.setColor(color);
             g.fillRect(0, 0, width, height);
-            g.drawImage(image, 10, 6, 20, 17,this);
-            g.setColor(new Color(255,255,255,40 ));
+            g.drawImage(image, 10, 6, 20, 17, this);
+            g.setColor(new Color(255, 255, 255, 40));
             g.fillRect(0, 0, width, height);
         } else {
             g.setColor(color);
             g.fillRect(0, 0, width, height);
-            g.drawImage(image, 10, 6, 20, 17,this);
+            g.drawImage(image, 10, 6, 20, 17, this);
         }
     }
 
